@@ -1,3 +1,4 @@
+import { Button } from '@mui/material'
 import Head from 'next/head'
 
 const IndexPage = () => {
@@ -6,7 +7,7 @@ const IndexPage = () => {
 			<Head>
 				<title>Sait App</title>
 			</Head>
-			<div>IndexPage</div>
+			<Button></Button>
 		</>
 	)
 }
