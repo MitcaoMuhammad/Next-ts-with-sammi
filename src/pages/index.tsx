@@ -1,14 +1,12 @@
 import { Button } from '@mui/material'
 import Head from 'next/head'
+import Layout from 'src/layout/layout'
 
 const IndexPage = () => {
 	return (
-		<>
-			<Head>
-				<title>Sait App</title>
-			</Head>
+		<Layout>
 			<Button></Button>
-		</>
+		</Layout>
 	)
 }
 
