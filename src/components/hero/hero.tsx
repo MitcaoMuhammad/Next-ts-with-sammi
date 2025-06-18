@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { format } from 'date-fns'
 import { HeroProps } from './hero.props'
+import { calculateEstimatedTimeToRead } from 'src/helpers/time.format'
 
 const Hero = ({ blogs }: HeroProps) => {
 	return (
@@ -66,8 +67,10 @@ const Hero = ({ blogs }: HeroProps) => {
 										<Box>
 											<Typography>{item.author.name}</Typography>
 											<Box>
-												{format(new Date(item.createdAt), 'dd MMM yyyy')}{' '}
-												&#x2022; 10min read
+												{format(new Date(item.createdAt), 'dd MMM, yyyy')}{' '}
+												&#x2022;{' '}
+												{calculateEstimatedTimeToRead(item.description.text)}min
+												read
 											</Box>
 										</Box>
 									</Box>
