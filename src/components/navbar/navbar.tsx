@@ -18,6 +18,7 @@ import { navItems } from 'src/config/constanst'
 import CloseIcon from '@mui/icons-material/Close'
 import AdjustIcon from '@mui/icons-material/Adjust'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 interface Props {
 	window?: () => Window
 }
@@ -34,7 +35,7 @@ const Navbar = ({ window }: Props) => {
 		window !== undefined ? () => window().document.body : undefined
 
 	const drawer = (
-		<Box onClick={handelDrawerToggle} sx={{ textAlign: 'center' }}>
+		<Box sx={{ textAlign: 'center' }}>
 			<Box
 				sx={{
 					display: 'flex',
@@ -47,13 +48,16 @@ const Navbar = ({ window }: Props) => {
 					<AdjustIcon />
 					<Typography variant='h6'>Said</Typography>
 				</Box>
-				<CloseIcon />
+				<CloseIcon onClick={handelDrawerToggle} sx={{ cursor: 'pointer' }} />
 			</Box>
 			<Divider />
 			<List>
 				{navItems.map(item => (
 					<ListItem key={item.label} disablePadding>
-						<ListItemButton sx={{ textAlign: 'center' }}>
+						<ListItemButton
+							onClick={() => router.push(item.route)}
+							sx={{ textAlign: 'center' }}
+						>
 							<ListItemText primary={item.label} />
 						</ListItemButton>
 					</ListItem>
@@ -63,9 +67,9 @@ const Navbar = ({ window }: Props) => {
 	)
 
 	return (
-		<Box height={'10vh'} sx={{ display: 'flex' }}>
+		<Box height={'9vh'} sx={{ display: 'flex' }}>
 			<AppBar
-				sx={{ height: '10vh', backgroundColor: '#141414' }}
+				sx={{ backgroundColor: '#141414', height: '9vh' }}
 				component='nav'
 			>
 				<Toolbar>
@@ -79,17 +83,23 @@ const Navbar = ({ window }: Props) => {
 						<MenuIcon />
 					</IconButton>
 					<Box
-						component='div'
+						onClick={() => router.push('/')}
 						sx={{
 							my: 2,
 							alignItems: 'center',
 							gap: '5px',
 							flexGrow: 1,
-							display: { xs: 'none', sm: 'flex' },
+							display: 'flex',
+							cursor: 'pointer',
 						}}
 					>
-						<AdjustIcon />
-						<Typography variant='h6' component='div'>
+						<Image src={'/favicon.png'} alt={'logo'} width={50} height={50} />
+						<Typography
+							paddingTop={'7px'}
+							variant='h4'
+							fontFamily={'fantasy'}
+							component='div'
+						>
 							Said
 						</Typography>
 					</Box>
