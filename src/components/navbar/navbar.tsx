@@ -45,8 +45,15 @@ const Navbar = ({ window }: Props) => {
 				}}
 			>
 				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
-					<AdjustIcon />
-					<Typography variant='h6'>Said</Typography>
+					<Image src={'/favicon.png'} alt={'logo'} width={50} height={50} />
+					<Typography
+						paddingTop={'7px'}
+						variant='h4'
+						fontFamily={'fantasy'}
+						component='div'
+					>
+						Said
+					</Typography>
 				</Box>
 				<CloseIcon onClick={handelDrawerToggle} sx={{ cursor: 'pointer' }} />
 			</Box>
