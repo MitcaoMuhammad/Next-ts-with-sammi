@@ -4,8 +4,8 @@ export const navItems = [
 		label: 'Home',
 	},
 	{
-		route: '/catogories',
-		label: 'Catogories',
+		route: '/category',
+		label: 'Category',
 	},
 	{
 		route: '/blogs',
